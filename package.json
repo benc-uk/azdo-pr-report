@@ -1,0 +1,25 @@
+{
+  "name": "azdo-pr-report",
+  "version": "1.0.0",
+  "description": "Report on Azure DevOps PRs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benc-uk/azdo-pr-report.git"
+  },
+  "author": "Ben Coleman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benc-uk/azdo-pr-report/issues"
+  },
+  "homepage": "https://github.com/benc-uk/azdo-pr-report#readme",
+  "dependencies": {
+    "azure-devops-node-api": "^10.1.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
