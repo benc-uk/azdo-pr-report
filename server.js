@@ -27,8 +27,11 @@ app.get('/', async (req, res) => {
 
     const prs = await gitClient.getPullRequestsByProject(PROJECT, "")
 
-    console.log(prs);
-    res.render('report', { project: PROJECT, prs });
+    res.render('report', {
+      orgUrl: ORG_URL,
+      project: PROJECT,
+      prs
+    });
   } catch (err) {
     console.error(err)
     res.status(500).send(`ERROR: ${err.toString()}`)
