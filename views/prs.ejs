@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head')-%>
+</head>
+
+<body>
+  <%- include('./partials/nav')-%>
+
+  <section class="section p-2 pl-4 has-background-grey-lighter">
+    <h1 class="title"><span class="iconify" data-icon="octicon:git-pull-request-24"></span> Open Pull Requests</h1>
+  </section>
+
+  <section class="section p-4">
+
+    <% prs.forEach(function(pr) { %>
+    <div class="box hoverbox p-0 pb-3">
+
+      <section class="section p-4 has-background-grey-lighter">
+        <h3 class="title is-4"><a
+            href="<%= orgUrl %>/<%= project %>/_git/<%= pr.repository.name %>/pullrequest/<%= pr.pullRequestId %>"
+            target="_pr_pr.<%= pr.pullRequestId %>"><%= pr.title %></a></h3>
+      </section>
+
+      <div class="content">
+        <ul>
+          <h5 class="title is-5"><%= pr.repository.name %></h5>
+          <li>ID: <b><%= pr.pullRequestId %></b></li>
+          <li>Created By: <b><%= pr.createdBy.displayName %></b></li>
+          <li>Ref: <b><%= pr.sourceRefName.replace('refs/heads/', '') %></b></li>
+        </ul>
+      </div>
+    </div>
+    <% }); %>
+
+  </section>
+</body>
+
+</html>

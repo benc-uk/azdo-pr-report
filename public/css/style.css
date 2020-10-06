@@ -1,0 +1,16 @@
+.octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+
+.hoverbox {
+  background-color: #f5f5f5;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.25), 0 0 0 1px rgba(10,10,10,.07);
+}
+
+
+.hoverbox:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.4), 0 0 0 1px rgba(10,10,10,.2);
+}

@@ -1,11 +1,11 @@
-const azdo = require('azure-devops-node-api')
-//const ejs = require('ejs')
+const express = require('express')
 const path = require('path')
+const octicons = require('@primer/octicons')
 
 // Load config
 require('dotenv').config()
 
-const express = require('express')
+// Basic Express app
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -14,30 +14,15 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.get('/', async (req, res) => {
-  try {
-    const ORG_URL = process.env.AZDO_ORG_URL
-    const PROJECT = process.env.AZDO_PROJECT
-    const ACCESS_TOKEN = process.env.AZDO_PAT
+// Make icons available to all views
+app.locals = {
+  icons: octicons
+}
 
-    const authHandler = azdo.getPersonalAccessTokenHandler(ACCESS_TOKEN)
-    const connection = new azdo.WebApi(ORG_URL, authHandler)
+// Routes & controllers
+app.use('/', require('./routes'))
 
-    const gitClient = await connection.getGitApi()
-
-    const prs = await gitClient.getPullRequestsByProject(PROJECT, "")
-
-    res.render('report', {
-      orgUrl: ORG_URL,
-      project: PROJECT,
-      prs
-    });
-  } catch (err) {
-    console.error(err)
-    res.status(500).send(`ERROR: ${err.toString()}`)
-  }
-})
-
+// Start server
 app.listen(port, () => {
   console.log(`Azure DevOps Reporter listening at http://localhost:${port}`)
 })

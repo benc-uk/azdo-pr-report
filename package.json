@@ -1,7 +1,7 @@
 {
   "name": "azdo-pr-report",
   "version": "1.0.0",
-  "description": "Report on Azure DevOps PRs",
+  "description": "Report on Azure DevOps with better frontend",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
