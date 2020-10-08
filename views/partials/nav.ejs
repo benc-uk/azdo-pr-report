@@ -8,13 +8,25 @@
 
   <div id="mainNav" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="/prs">
-        <span class="iconify" data-icon="octicon:git-pull-request-16"></span> &nbsp; Pull Requests
-      </a>
 
-      <a class="navbar-item" href="/branches">
-        <span class="iconify" data-icon="octicon:git-branch-16"></span> &nbsp; Branches
-      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <span class="iconify" data-icon="octicon:git-pull-request-16"></span> &nbsp; Pull Requests
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/prs/active">
+            Active
+          </a>
+          <a class="navbar-item" href="/prs/completed">
+            Completed
+          </a>
+          <a class="navbar-item" href="/prs/abandoned">
+            Abandoned
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </nav>
